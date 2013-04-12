@@ -1,7 +1,13 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.all
+    if params[:near]
+      Event.near(params[:near])
+    else
+      @events = Event.all
+    end
+
+
     @json = @events.to_gmaps4rails do |event, marker|
       marker.infowindow render_to_string(:partial => "/events/infowindow", :locals => { :event => event})
       marker.title "#{event.address}"
@@ -78,6 +84,4 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-
 end
