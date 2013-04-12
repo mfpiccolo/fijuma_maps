@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe EventsController, :vcr do
+describe EventsController do
   context 'routing' do
     it {should route(:get, '/events/new').to :action => :new}
     it {should route(:post, '/events').to :action => :create}
