@@ -1,16 +1,24 @@
 
-<h1>Listing events</h1>
+<div class="floatme"><h1>Listing events</h1></div>
 
 <div id="map_canvas">
     <%= gmaps4rails(@json) %>
 <div>
+
+<div class="infoblock">
 <table>
+    <tr><td>
+        <%= form_tag(searches_path, :method => "get") do %>
+          <%= label_tag(:q, "Search for:") %>
+          <%= text_field_tag(:q) %>
+          <%= submit_tag("Search") %>
+        <% end %>
+
+    </td><tr>
   <tr>
-    <th>Name</th>
+    <th>Event</th>
+    <th>Time</th>
     <th>Address</th>
-    <th>Longitude</th>
-    <th>Latitude</th>
-    <th>Gmaps</th>
     <th></th>
     <th></th>
     <th></th>
@@ -22,12 +30,11 @@
     <td><%= event.longitude %></td>
     <td><%= event.latitude %></td>
     <td><%= event.gmaps %></td>
-    <td><%= link_to 'Show', event, :class => 'btn btn-primary' %></td>
-    <td><%= link_to 'Edit', edit_event_path(event), :class => 'btn btn-primary' %></td>
-    <td><%= link_to 'Destroy', event, method: :delete, :class => 'btn btn-primary', data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'More Info', event, :class => 'btn btn-success btn-small' %></td>
   </tr>
 <% end %>
 </table>
+</div>
 
 <br />
 

@@ -9,4 +9,6 @@ class Search
     #Faraday search
     @events = Event.new(:latitude => @latitude)
   end
+
+
 end
