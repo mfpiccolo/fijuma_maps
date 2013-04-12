@@ -7,8 +7,8 @@ class EventsController < ApplicationController
       marker.title "#{event.address}"
       marker.json({:address => event.address})
       marker.picture({:picture => "https://dl.dropbox.com/u/20963921/map_icons/music_rock.png",
-                    :width => 32,
-                    :height => 32})
+                    :width => 35,
+                    :height => 35})
     end
   end
 

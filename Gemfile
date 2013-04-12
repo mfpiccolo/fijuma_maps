@@ -37,8 +37,8 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'rb-fsevent'
   gem 'guard-rspec'
-  # gem 'vcr'
-  # gem 'webmock'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 # To use ActiveModel has_secure_password
