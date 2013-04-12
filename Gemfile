@@ -7,6 +7,9 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 gem 'gmaps4rails'
+gem 'faraday'
+gem 'json'
+gem 'foreman'
 
 
 # Gems used only for assets and not required
@@ -39,8 +42,8 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'rb-fsevent'
   gem 'guard-rspec'
-  gem 'vcr'
-  gem 'webmock'
+  # gem 'vcr'
+  # gem 'webmock'
 end
 
 # To use ActiveModel has_secure_password
