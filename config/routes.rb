@@ -1,5 +1,7 @@
 FijumaMaps::Application.routes.draw do
 
+  resources :events
+  resources :searches
 
   match 'searches' => 'searches#index', :via => :get 
 
