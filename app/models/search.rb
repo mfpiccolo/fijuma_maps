@@ -2,13 +2,15 @@ class Search
   attr_reader :events, :latitude, :longitude, :api_key, :max, :date, :city, :within, :events, :title, :venue, :address, :city, :region, :postal_code, :category, :start_date, :end_date, :price
  
   def initialize(address)
+    @address = ((address != nil && address != "") ? address : '95811') 
     @events = []
     meetup_search
   end
 
   def meetup_search
     post_response = Faraday.get do |request|
-    request.url "https://api.meetup.com/2/open_events?key=31326e6a4a3819374d109496c6f7aa&sign=true&zip=95811&page=20"
+    coordinates = get_coords(@address)  
+    request.url "https://api.meetup.com/2/open_events?key=31326e6a4a3819374d109496c6f7aa&sign=true&lon=#{coordinates[:longitude]}&lat=#{coordinates[:latitude]}&page=20"
     end    
      
     meetups = JSON.parse(post_response.body)
@@ -48,5 +50,12 @@ class Search
     end
   end
 
+  private
+
+  def get_coords(address)
+    gcoder = Gmaps4rails::Geocoder.new(address)
+    coordinates = gcoder.get_coordinates.first
+    {:longitude => coordinates[:lng], :latitude => coordinates[:lat]}
+  end
 
 end

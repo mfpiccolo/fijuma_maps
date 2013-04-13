@@ -15,7 +15,6 @@
 development:
   host: localhost
   adapter: postgresql
-  encoding: unicode
   database: fijuma_maps_development
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -39,7 +38,6 @@ development:
 test:
   host: localhost
   adapter: postgresql
-  encoding: unicode
   database: fijuma_maps_test
 
 

@@ -5,7 +5,7 @@ FijumaMaps::Application.routes.draw do
 
   match 'searches' => 'searches#index', :via => :get 
 
-  root :to => 'events#index'
+  root :to => 'searches#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

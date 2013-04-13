@@ -2,7 +2,7 @@ class SearchesController < ApplicationController
 
 
   def index
-    @events = Search.new(params[:address]).events
+    @events = Search.new(params[:q]).events
     @json = @events.to_gmaps4rails do |event, marker|
       marker.infowindow render_to_string(:partial => "/events/infowindow", :locals => { :event => event})
       marker.title "#{event.address}"
