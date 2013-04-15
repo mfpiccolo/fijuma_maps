@@ -5,6 +5,9 @@ FijumaMaps::Application.routes.draw do
   match 'searches' => 'searches#index', :via => :get 
 
   root :to => 'searches#index'
+
+  match 'home/index' => 'home#index'
+  match 'home/callback' => 'home#callback'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

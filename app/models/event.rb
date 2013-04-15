@@ -18,9 +18,8 @@ class Event < ActiveRecord::Base
     else
       ic = Iconv.new('UTF-8', 'UTF-8//IGNORE')
       @description = ic.iconv(description)
-      gsdg
     end
-    @description = @description.gsub(/<h\d>[^>]*>/,'').gsub(/<img[^>]*>/,'').gsub(/<\/?[^>]*>/, '').gsub(/(?<!\n)\n(?!\n)/, '')
+    #@description = @description.gsub(/<h\d>[^>]*>/,'').gsub(/<img[^>]*>/,'').gsub(/<\/?[^>]*>/, '').gsub(/(?<!\n)\n(?!\n)/, '')
   end
 
 end

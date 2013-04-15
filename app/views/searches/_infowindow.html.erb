@@ -1,3 +1,5 @@
-<h4>address: <%= event.address %></h4>
-<h4>longitude: <%= event.longitude %></h4>
-<h4>description: <%= event.description %></h4>
+<h4><%= event.name %><%= link_to ' (link)', event.event_url %></h4>
+<h5><%= event.address %></h5>
+<h5><%= event.city %>, <%= event.state %> <%= event.zip_code %></h5> 
+<h5>Description: </h5>
+<h5><%= simple_format event.description.split(' ')[0..50].join(' ') %></h5>
