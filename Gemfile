@@ -9,7 +9,7 @@ gem 'pg'
 gem 'gmaps4rails'
 gem 'faraday'
 gem 'json'
-
+gem 'iconv'
 
 
 # Gems used only for assets and not required

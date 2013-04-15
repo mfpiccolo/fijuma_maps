@@ -92,6 +92,7 @@ GEM
     hike (1.2.2)
     http_parser.rb (0.5.3)
     i18n (0.6.1)
+    iconv (1.0.3)
     journey (1.0.4)
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
@@ -217,6 +218,7 @@ DEPENDENCIES
   foreman
   gmaps4rails
   guard-rspec
+  iconv
   jquery-rails
   json
   meta_request
