@@ -13,6 +13,7 @@ class Search
     end
     @events = []
     meetup_search
+    @events << Event.new(get_coords(@address).merge(:address => @address))
   end
 
   def meetup_search

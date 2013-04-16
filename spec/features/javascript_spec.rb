@@ -4,6 +4,6 @@ require 'spec_helper'
     scenario "with results", :vcr do
       visit root_path
       sleep 3
-      page.should have_content("40 1st Street 4th Floor")
+      page.should have_content("180 Townsend St Tuesday Board Game Night")
     end
 end
