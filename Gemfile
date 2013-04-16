@@ -41,17 +41,18 @@ group :test, :development do
   gem 'shoulda-matchers'
   gem 'pry'
   gem 'pry-debugger'
-  # gem 'factory_girl_rails'
+  gem 'factory_girl_rails'
   gem 'rb-fsevent'
   gem 'guard-rspec'
-  # gem 'vcr'
-  # gem 'webmock'
+  gem 'vcr'
+
 end
 
 group :test do 
   gem 'capybara'
   gem "capybara-firebug"
   gem 'poltergeist'
+  gem 'webmock'
 end
 
 # To use ActiveModel has_secure_password
