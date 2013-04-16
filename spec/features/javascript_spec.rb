@@ -1,12 +1,9 @@
 require 'spec_helper'
 
-feature "event map" do
-  scenario "with results", :js => true do
-    visit searches_path
-    find('2641 Cottage Way, Suite 7 ').click
-
-    page.should have_content("whatever: -121.504883")
-  end
-
-
+  feature "event map", :vcr do
+    scenario "with results", :vcr do
+      visit root_path
+      sleep 3
+      page.should have_content("40 1st Street 4th Floor")
+    end
 end

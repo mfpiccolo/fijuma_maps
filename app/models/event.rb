@@ -8,13 +8,16 @@ class Event < ActiveRecord::Base
     address
   end
 
+  def slug
+    name.downcase.gsub(" ", "_")
+  end
 
   private
 
-  def encode_description
-    @description = description.force_encoding "ASCII-8BIT"
-    @name = name.force_encoding "ASCII-8BIT"
-    @group_name = group_name.force_encoding "ASCII-8BIT"
+  def encode_description  
+    @description = description.force_encoding "ASCII-8BIT" if description
+    @name = name.force_encoding "ASCII-8BIT" if name
+    @group_name = group_name.force_encoding "ASCII-8BIT" if group_name
     # @city = city.force_encoding "ASCII-8BIT"
     # @state = state.force_encoding "ASCII-8BIT"
     # @zip_code = zip_code.force_encoding "ASCII-8BIT"
