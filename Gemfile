@@ -11,6 +11,7 @@ gem 'faraday'
 gem 'json'
 gem 'iconv'
 gem 'koala'
+gem 'forward'
 
 
 # Gems used only for assets and not required

@@ -5,9 +5,29 @@
     <%= gmaps4rails(@json) %>
 <div>
 
-<div class="infoblock hidden-phone">
-<table>
-    <tr><td>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
+<link href="styles.css" rel="stylesheet" type="text/css" />
+
+
+<script type="text/javascript">                                         
+$(document).ready(function() {
+
+   $("tr.header").click(function () { 
+      $("tr.child", $(this).parent()).slideToggle("fast");
+   });
+
+
+});
+
+</script>  
+
+</head>
+<div class="infoblock hidden-phone hidden-tablet"
+>
+<table class="collapsible">
+  <tr class="header"><td> Collapse </td></tr>
+    <tr class="child"><td>
         <%= form_for searches_path, :method => "get", class: 'form-horizontal' do |f| %>
           <%= f.label(:search_location, "Location:") %>
           <%= f.text_field :search_location, :value => location  %>
@@ -17,8 +37,8 @@
           <%= f.submit "Search", class: "btn btn-primary" %><br>
         <% end %>
 
-    </td><tr>
-  <tr>
+    </td></tr>
+  <tr class="child">
     <th>Event</th>+
     <th>Group Name</th>
     <th>Address</th>
@@ -27,20 +47,32 @@
   </tr>
 
 <% @events.each do |event| %>
-  <tr>
-    <td><%= link_to event.name[0..40], event.event_url %></td>
-    <td><%= event.group_name[0..20] %></td>
-    <td><%= event.address %></td>
+  <tr class="child">
+    <td><%= link_to event.name[0..100], event.event_url %></td>
+    <td><%= event.group_name[0..100] %></td>
+    <td><%= event.address%></td>
   </tr>
 <% end %>
 </table>
 </div>
 
-<div class="infoblock-mobile visible-phone">
-        <%= form_tag(searches_path, :method => "get", :class => "form-inline") do %>
-          <%= label_tag(:q, "") %>
-          <%= text_field_tag(:q,'San Francisco',:class => "input-medium") %>
-          <%= submit_tag("Search", :class => "btn btn-primary") %>
+<div class="infoblock-mobile visible-phone ">
+        <%= form_for searches_path, :method => "get", class: 'form-horizontal' do |f| %>
+          <%= f.text_field :search_location, :value => location, class: 'input-medium control-group'  %>
+          <div class="hideme">
+            <%= f.date_select :start_time, :default => start_time%><br>
+            <%= f.date_select :end_time, :default => end_time%>
+          </div>
+          <%= f.submit "Search", class: "btn btn-primary" %><br>
+        <% end %>
+</div>
+
+<div class="infoblock-tablet  visible-tablet">
+        <%= form_for searches_path, :method => "get", class: 'form-horizontal' do |f| %>
+          <%= f.text_field :search_location, :value => location, class: 'input-medium control-group'  %><br>
+            <%= f.date_select :start_time, :default => start_time, class: 'input-medium control-group'%><br>
+            <%= f.date_select :end_time, :default => end_time, class: 'input-medium control-group'%>
+            <%= f.submit "Search", class: "btn btn-primary" %><br>
         <% end %>
 </div>
 
