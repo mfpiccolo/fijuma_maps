@@ -1,6 +1,12 @@
 .floatme {
   position: absolute;
-  left: 150px;
+  left: 90px;
+  z-index: 3;
+}
+
+.floatme-mobile {
+  position: absolute;
+  left: 50px;
   z-index: 3;
 }
 
@@ -14,6 +20,17 @@
   height: 250px;
   overflow-y: scroll;
 
+
+}
+
+.infoblock-mobile {
+  background-color: #ccc #ccc #999 #ccc;
+  position: absolute;
+  bottom: 50px;
+  left: 10%;
+  z-index: 3;
+  opacity: 1;
+  height: 10px;
 
 }
 

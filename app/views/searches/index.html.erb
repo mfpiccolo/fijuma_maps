@@ -1,10 +1,11 @@
-<div class="floatme"><h1>FIJUMAPS.</h1></div>
+<div class="floatme visible-desktop visible-tablet"><h1>FIJUMAPS.</h1></div>
+<div class="floatme-mobile hidden-desktop hidden-tablet"><h3>FIJUMAPS.</h3></div>
 
 <div id="map_canvas">
     <%= gmaps4rails(@json) %>
 <div>
 
-<div class="infoblock">
+<div class="infoblock hidden-phone">
 <table>
     <tr><td>
         <%= form_tag(searches_path, :method => "get") do %>
@@ -30,6 +31,14 @@
   </tr>
 <% end %>
 </table>
+</div>
+
+<div class="infoblock-mobile visible-phone">
+        <%= form_tag(searches_path, :method => "get", :class => "form-inline") do %>
+          <%= label_tag(:q, "") %>
+          <%= text_field_tag(:q,'San Francisco',:class => "input-medium") %>
+          <%= submit_tag("Search", :class => "btn btn-primary") %>
+        <% end %>
 </div>
 
 <br />
