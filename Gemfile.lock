@@ -80,6 +80,10 @@ GEM
     foreman (0.62.0)
       thor (>= 0.13.6)
     formatador (0.2.4)
+    forward (0.3.1)
+      highline (~> 1.6.13)
+      json (~> 1.7.3)
+      net-ssh (~> 2.4.0)
     gmaps4rails (1.5.6)
     guard (1.7.0)
       formatador (>= 0.2.4)
@@ -90,6 +94,7 @@ GEM
     guard-rspec (2.5.2)
       guard (>= 1.1)
       rspec (~> 2.11)
+    highline (1.6.15)
     hike (1.2.2)
     http_parser.rb (0.5.3)
     i18n (0.6.1)
@@ -98,6 +103,7 @@ GEM
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jruby-pageant (1.1.1)
     json (1.7.7)
     koala (1.6.0)
       addressable (~> 2.2)
@@ -119,6 +125,8 @@ GEM
       metaclass (~> 0.0.1)
     multi_json (1.7.2)
     multipart-post (1.2.0)
+    net-ssh (2.4.0)
+      jruby-pageant (>= 1.0.2)
     nokogiri (1.5.9)
     pg (0.15.1)
     poltergeist (1.1.0)
@@ -221,6 +229,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   faraday
   foreman
+  forward
   gmaps4rails
   guard-rspec
   iconv

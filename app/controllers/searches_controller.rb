@@ -3,6 +3,7 @@ class SearchesController < ApplicationController
 
 
   def index
+    # binding.pry
     if params['/searches']
       @location = params['/searches'][:search_location]
       @start_time = Time.local(params['/searches']["start_time(1i)"], params['/searches']["start_time(2i)"], params['/searches']["start_time(3i)"])
