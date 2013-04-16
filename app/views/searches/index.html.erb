@@ -23,10 +23,11 @@ $(document).ready(function() {
 </script>  
 
 </head>
-<div class="infoblock hidden-phone hidden-tablet"
->
-<table class="collapsible">
-  <tr class="header"><td> Collapse </td></tr>
+<div class="infoblock hidden-phone hidden-tablet" class="accordion">
+  
+  <table>
+  <tr class="header" id="collapse" ><td> Collapse </td></tr>
+
     <tr class="child"><td>
         <%= form_for searches_path, :method => "get", class: 'form-horizontal' do |f| %>
           <%= f.label(:search_location, "Location:") %>
@@ -46,6 +47,7 @@ $(document).ready(function() {
     <th></th>
   </tr>
 
+
 <% @events.each do |event| %>
   <tr class="child">
     <td><%= link_to event.name[0..100], event.event_url if event.name %></td>
@@ -54,6 +56,7 @@ $(document).ready(function() {
   </tr>
 <% end %>
 </table>
+
 </div>
 
 <div class="infoblock-mobile visible-phone ">
