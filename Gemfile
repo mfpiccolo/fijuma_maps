@@ -44,14 +44,14 @@ group :test, :development do
   gem 'rb-fsevent'
   gem 'guard-rspec'
   gem 'vcr'
-  gem 'webmock'
+
 end
 
 group :test do 
   gem 'capybara'
   gem "capybara-firebug"
   gem 'poltergeist'
-
+  gem 'webmock'
 end
 
 # To use ActiveModel has_secure_password
