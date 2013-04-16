@@ -27,7 +27,12 @@
 }
 .collapsible {
   position: relative;
-  width: 100%;  
+  width: 100%; 
+
+}
+
+.accordion {
+  margin-bottom: 20px;
 }
 
 td {
