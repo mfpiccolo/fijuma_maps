@@ -48,9 +48,9 @@ $(document).ready(function() {
 
 <% @events.each do |event| %>
   <tr class="child">
-    <td><%= link_to event.name[0..100], event.event_url %></td>
-    <td><%= event.group_name[0..100] %></td>
-    <td><%= event.address%></td>
+    <td><%= link_to event.name[0..100], event.event_url if event.name %></td>
+    <td><%= event.group_name[0..100] if event.group_name %></td>
+    <td><%= event.address if event.address %></td>
   </tr>
 <% end %>
 </table>
