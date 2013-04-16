@@ -17,8 +17,8 @@ class Search
 
   def meetup_search
     post_response = Faraday.get do |request|
-    coordinates = get_coords(@address)
-    request.url "https://api.meetup.com/2/open_events?key=31326e6a4a3819374d109496c6f7aa&sign=true&lon=#{coordinates[:longitude]}&lat=#{coordinates[:latitude]}&time=#{@start_time},#{@end_time}&page=20"
+      coordinates = get_coords(@address)
+      request.url "https://api.meetup.com/2/open_events?key=31326e6a4a3819374d109496c6f7aa&sign=true&lon=#{coordinates[:longitude]}&lat=#{coordinates[:latitude]}&time=#{@start_time},#{@end_time}&page=20"
     end   
     meetups = JSON.parse(post_response.body)
     events = meetups['results'].each do |event|

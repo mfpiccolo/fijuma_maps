@@ -15,6 +15,9 @@ class Event < ActiveRecord::Base
     @description = description.force_encoding "ASCII-8BIT"
     @name = name.force_encoding "ASCII-8BIT"
     @group_name = group_name.force_encoding "ASCII-8BIT"
+    # @city = city.force_encoding "ASCII-8BIT"
+    # @state = state.force_encoding "ASCII-8BIT"
+    # @zip_code = zip_code.force_encoding "ASCII-8BIT"
   end
  
 end
