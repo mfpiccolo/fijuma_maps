@@ -7,15 +7,18 @@
 <div class="infoblock">
 <table>
     <tr><td>
-        <%= form_tag(searches_path, :method => "get") do %>
-          <%= label_tag(:q, "Search for:") %>
-          <%= text_field_tag(:q) %>
-          <%= submit_tag("Search") %>
+        <%= form_for searches_path, :method => "get", class: 'form-horizontal' do |f| %>
+          <%= f.label(:search_location, "Location:") %>
+          <%= f.text_field :search_location, :value => location  %>
+          <%= f.label "Date Range:" %>
+          <%= f.date_select :start_time, :default => start_time %><br>
+          <%= f.date_select :end_time, :default => end_time %>
+          <%= f.submit "Search", class: "btn btn-primary" %><br>
         <% end %>
 
     </td><tr>
   <tr>
-    <th>Event</th>
+    <th>Event</th>+
     <th>Group Name</th>
     <th>Address</th>
     <th></th>

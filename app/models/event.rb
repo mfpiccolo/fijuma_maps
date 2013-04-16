@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
   attr_accessible :address, :latitude, :longitude, :gmaps, :name, :group_name, :time, :duration, :attendees, :event_url, :description, :city, :state, :zip_code, :venue
   acts_as_gmappable
 
-  after_initialize :parse_description
+  after_initialize :encode_description
 
   def gmaps4rails_address
     address
@@ -11,16 +11,10 @@ class Event < ActiveRecord::Base
 
   private
 
-  def parse_description
-    if String.method_defined?(:encode)
-      @description = description.encode!('UTF-16', 'UTF-8', :invalid => :replace, :replace => '')
-      @description = description.encode!('UTF-8', 'UTF-16')
-    else
-      ic = Iconv.new('UTF-8', 'UTF-8//IGNORE')
-      @description = ic.iconv(description)
-      gsdg
-    end
-    @description = @description.gsub(/<h\d>[^>]*>/,'').gsub(/<img[^>]*>/,'').gsub(/<\/?[^>]*>/, '').gsub(/(?<!\n)\n(?!\n)/, '')
+  def encode_description
+    @description = description.force_encoding "ASCII-8BIT"
+    @name = name.force_encoding "ASCII-8BIT"
+    @group_name = group_name.force_encoding "ASCII-8BIT"
   end
-
+ 
 end
